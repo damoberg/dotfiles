@@ -1,3 +1,7 @@
+ZSH_THEME="af-magic"
+
+plugins=(git zsh-syntax-highlighting chucknorris docker z history)
+
 # Adds / when expanding ..
 zstyle ':completion:*' special-dirs true
 
@@ -7,6 +11,13 @@ export LANG=en_US.UTF-8
 
 # Disable "auto cd"
 unsetopt AUTO_CD
+
+# Aliases
+alias lt="ls -ltFh"
+alias less="vimpager"
+alias gbrag='git shortlog -s -n --all'
+alias gpr="git pull --rebase"
+alias gp="git pull"
 
 # Set JDK version
 function setjdk() {
@@ -25,4 +36,14 @@ function removeFromPath() {
 setjdk 1.8
 
 set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 12
+
+# Increase maximum open files
+# https://stackoverflow.com/questions/19981065/nodejs-error-emfile-too-many-open-files-on-mac-os/27982223#27982223
+ulimit -n 65536 65536
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
 
